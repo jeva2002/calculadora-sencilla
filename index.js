@@ -7,6 +7,12 @@ const themeBlue = document.getElementById('blue');
 const themeGreen = document.getElementById('green');
 const themeRed = document.getElementById('red');
 
+const defaultTheme = localStorage.getItem('theme');
+if (defaultTheme)
+  defaultTheme === 'red'
+    ? (body.className = 'redTheme')
+    : (body.className = 'greenTheme');
+
 const write = (_e) => {
   output.innerHTML += _e;
   document.getElementById('delete').value = 'CE';
@@ -34,10 +40,13 @@ document.querySelector('form').addEventListener('click', (e) => {
 
 themeBlue.addEventListener('click', () => {
   body.className = 'blueTheme';
+  localStorage.removeItem('theme');
 });
 themeGreen.addEventListener('click', () => {
   body.className = 'greenTheme';
+  localStorage.setItem('theme', 'green');
 });
 themeRed.addEventListener('click', () => {
   body.className = 'redTheme';
+  localStorage.setItem('theme', 'red');
 });

@@ -44,6 +44,7 @@ main form {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  box-shadow: -2px 16px 29px -10px rgba(0, 0, 0, 0.75);
 }
 main form div input {
   color: white;
