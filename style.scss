@@ -1,0 +1,43 @@
+:root {
+  font-size: 10px;
+}
+
+main {
+  padding: 10rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  form {
+    div {
+      input {
+        width: 6rem;
+        height: 6rem;
+        margin: 0.5rem;
+        font-size: 2rem;
+      }
+    }
+
+    #screen {
+      background-color: #ededed;
+      margin-bottom: 1rem;
+      min-height: 8rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: end;
+
+      p {
+        font-size: 3rem;
+        margin: 0;
+        margin-right: 1rem;
+      }
+
+      small {
+        font-size: 1.8rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+}
