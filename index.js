@@ -31,7 +31,12 @@ document.querySelector('form').addEventListener('click', (e) => {
       output.innerHTML = output.innerHTML.slice(0, -1);
     } else {
       history.innerHTML = output.innerHTML;
-      if (isNaN(output.innerHTML))
+      if (
+        isNaN(output.innerHTML.at(-1)) &&
+        output.innerHTML.at(-1) !== undefined
+      )
+        output.innerHTML = 'Syntax Error';
+      else if (isNaN(output.innerHTML))
         output.innerHTML = operation(output.innerHTML);
       document.getElementById('delete').value = 'AC';
     }
