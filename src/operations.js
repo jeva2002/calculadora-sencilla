@@ -35,6 +35,9 @@ const selectOperation = (_operator, _first, _second) => {
 };
 
 const operation = (_value) => {
+  _value = _value.replace(')', '');
+  _value = _value.replace('(', '');
+  if (!isNaN(_value)) return 'Syntax Error';
   const operationsList = formatData(_value);
   let firstValue = 0;
   let accumulated = 0;

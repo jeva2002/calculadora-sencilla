@@ -1,5 +1,21 @@
+$bg-default: #1693a5;
+$bg-calculator-default: #c7ede8;
+$bg-inputs-default: #45b5c4;
+
+$bg-green: #f6f8ee;
+$bg-calculator-green: #d6e68a;
+$bg-inputs-green: #95aa61;
+
+$bg-red: #422343;
+$bg-calculator-red: #ea284b;
+$bg-inputs-red: #7f1e47;
+
 :root {
   font-size: 10px;
+}
+
+body {
+  background-color: $bg-default;
 }
 
 main {
@@ -8,19 +24,76 @@ main {
   justify-content: center;
   align-content: center;
 
+  #themes {
+    position: relative;
+    left: 25rem;
+    top: 1rem;
+
+    #blue, #green, #red {
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #blue {
+      left: 5rem;
+      background-color: $bg-default;
+    }
+    #green {
+      left: 3rem;
+      background-color: $bg-green;
+    }
+    #red {
+      background-color: $bg-red;
+      left: 1rem;
+    }
+  }
+
   form {
+    background-color: $bg-calculator-default;
+    padding: 4rem;
+    border-radius: 1rem;
+    user-select: none;
+
     div {
       input {
+        color: white;
+        background-color: $bg-inputs-default;
         width: 6rem;
         height: 6rem;
         margin: 0.5rem;
         font-size: 2rem;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+      }
+
+      input:hover {
+        background-color: darken($bg-inputs-default, 10%);
+      }
+
+      .special-button {
+        background-color: #49708a;
+      }
+
+      .special-button:hover {
+        background-color: darken(#49708a, 10%);
+      }
+      
+      #equal {
+        background-color: #de8531;
       }
     }
 
     #screen {
-      background-color: #ededed;
+      color: #fbfbfb;
+      border-radius: 1rem;
+      background-color: #1b1f3b;
       margin-bottom: 1rem;
+      max-width: 27rem;
+      overflow: hidden;
       min-height: 8rem;
       padding: 1rem;
       display: flex;
@@ -38,6 +111,72 @@ main {
         font-size: 1.8rem;
         margin-right: 1rem;
       }
+    }
+  }
+}
+
+.redTheme {
+    background-color: $bg-red;
+  main {
+    form {
+      background-color: $bg-calculator-red;
+      div {
+        input {
+          background-color: $bg-inputs-red;
+        }
+        input:hover {
+          background-color: darken( $bg-inputs-red, 10%);
+        }
+        .special-button {
+          background-color: #171133;
+        } 
+
+        .special-button:hover {
+          background-color: darken( #171133, 10%);
+        }
+        #equal {
+          background-color: #de8531;
+        }
+      }
+    }
+  }
+}
+
+.greenTheme {
+    background-color: $bg-green;
+  main {
+    form {
+      background-color: $bg-calculator-green;
+      div {
+        input {
+          background-color: $bg-inputs-green;
+        }
+        input:hover {
+          background-color: darken($bg-inputs-green, 10%);
+        }
+        .special-button {
+          background-color: #39393A;
+        }
+        
+        .special-button:hover {
+          background-color: darken(#39393A, 10%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main {
+    padding: 0;
+    form {
+      padding: 3rem 1.8rem;
     }
   }
 }

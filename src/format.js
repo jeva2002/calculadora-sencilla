@@ -1,8 +1,6 @@
 const formatData = (_value) => {
   const operations = [];
   let expression = '';
-  _value = _value.replace(')', '');
-  _value = _value.replace('(', '');
   let flag = 0;
   let count = 0;
   _value.split('').forEach((e) => {
@@ -45,7 +43,6 @@ const formatData = (_value) => {
 };
 
 const formatExpression = (_expression) => {
-  console.log(_expression);
   const newExpression = [];
   let part = '';
   let count = 0;

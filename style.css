@@ -2,21 +2,79 @@
   font-size: 10px;
 }
 
+body {
+  background-color: #1693a5;
+}
+
 main {
   padding: 10rem;
   display: flex;
   justify-content: center;
   align-content: center;
 }
+main #themes {
+  position: relative;
+  left: 25rem;
+  top: 1rem;
+}
+main #themes #blue, main #themes #green, main #themes #red {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main #themes #blue {
+  left: 5rem;
+  background-color: #1693a5;
+}
+main #themes #green {
+  left: 3rem;
+  background-color: #f6f8ee;
+}
+main #themes #red {
+  background-color: #422343;
+  left: 1rem;
+}
+main form {
+  background-color: #c7ede8;
+  padding: 4rem;
+  border-radius: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 main form div input {
+  color: white;
+  background-color: #45b5c4;
   width: 6rem;
   height: 6rem;
   margin: 0.5rem;
   font-size: 2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+main form div input:hover {
+  background-color: #3495a2;
+}
+main form div .special-button {
+  background-color: #49708a;
+}
+main form div .special-button:hover {
+  background-color: #375569;
+}
+main form div #equal {
+  background-color: #de8531;
 }
 main form #screen {
-  background-color: #ededed;
+  color: #fbfbfb;
+  border-radius: 1rem;
+  background-color: #1b1f3b;
   margin-bottom: 1rem;
+  max-width: 27rem;
+  overflow: hidden;
   min-height: 8rem;
   padding: 1rem;
   display: flex;
@@ -32,4 +90,59 @@ main form #screen p {
 main form #screen small {
   font-size: 1.8rem;
   margin-right: 1rem;
+}
+
+.redTheme {
+  background-color: #422343;
+}
+.redTheme main form {
+  background-color: #ea284b;
+}
+.redTheme main form div input {
+  background-color: #7f1e47;
+}
+.redTheme main form div input:hover {
+  background-color: #561430;
+}
+.redTheme main form div .special-button {
+  background-color: #171133;
+}
+.redTheme main form div .special-button:hover {
+  background-color: #06040d;
+}
+.redTheme main form div #equal {
+  background-color: #de8531;
+}
+
+.greenTheme {
+  background-color: #f6f8ee;
+}
+.greenTheme main form {
+  background-color: #d6e68a;
+}
+.greenTheme main form div input {
+  background-color: #95aa61;
+}
+.greenTheme main form div input:hover {
+  background-color: #7a8c4c;
+}
+.greenTheme main form div .special-button {
+  background-color: #39393A;
+}
+.greenTheme main form div .special-button:hover {
+  background-color: #202020;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 420px) {
+  main {
+    padding: 0;
+  }
+  main form {
+    padding: 3rem 1.8rem;
+  }
 }/*# sourceMappingURL=style.css.map */
