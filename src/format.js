@@ -14,9 +14,11 @@ const formatData = (_value) => {
         if (e !== '.') flag++;
         expression += e;
       } else if (isNaN(e) && flag === 1) {
-        flag++;
-        operations.push(expression);
-        expression = '';
+        if (e !== '.') {
+          flag++;
+          operations.push(expression);
+          expression = '';
+        }
         expression += e;
       } else {
         if (isNaN(e) && flag === 2) {
@@ -25,9 +27,11 @@ const formatData = (_value) => {
           expression += e;
         }
         if (isNaN(e) && flag === 3) {
-          operations.push(expression);
-          expression = '';
-          flag = 2;
+          if (e !== '.') {
+            operations.push(expression);
+            expression = '';
+            flag = 2;
+          }
           expression += e;
         }
       }
@@ -37,11 +41,11 @@ const formatData = (_value) => {
       expression = '';
     }
   });
-  console.log(operations);
   return operations;
 };
 
 const formatExpression = (_expression) => {
+  console.log(_expression);
   const newExpression = [];
   let part = '';
   let count = 0;
@@ -53,8 +57,15 @@ const formatExpression = (_expression) => {
         newExpression.push(parseFloat(part));
       }
     } else if (isNaN(e)) {
-      newExpression.push(part, e);
-      part = '';
+      if (e !== '.') {
+        newExpression.push(parseFloat(part), e);
+        part = '';
+      } else {
+        part += e;
+        if (count === _expression.length) {
+          newExpression.push(parseFloat(part));
+        }
+      }
     }
   });
   return newExpression;
