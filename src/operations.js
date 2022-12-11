@@ -17,6 +17,7 @@ const percentage = (_first, _second) => {
 };
 
 const selectOperation = (_operator, _first, _second) => {
+  console.log(_first, _second, _operator);
   switch (_operator) {
     case '+':
       return addition(_first, _second);
@@ -29,8 +30,7 @@ const selectOperation = (_operator, _first, _second) => {
     case '%':
       return percentage(_first, _second);
     default:
-      console.log('holi');
-      return;
+      break;
   }
 };
 
@@ -39,14 +39,12 @@ const operation = (_value) => {
   _value = _value.replace('(', '');
   if (!isNaN(_value)) return 'Syntax Error';
   const operationsList = formatData(_value);
-  let firstValue = 0;
   let accumulated = 0;
 
   operationsList.forEach((e) => {
     if (!isNaN(e[0])) {
       const expression = formatExpression(e);
-      firstValue = expression[0];
-      accumulated += selectOperation(
+      accumulated = selectOperation(
         expression[1],
         expression[0],
         expression[2]
@@ -54,7 +52,7 @@ const operation = (_value) => {
     } else {
       const expression = formatExpression(e);
       expression.shift();
-      accumulated += selectOperation(expression[0], firstValue, expression[1]);
+      accumulated = selectOperation(expression[0], accumulated, expression[1]);
     }
   });
   return accumulated;
